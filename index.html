@@ -77,6 +77,17 @@
 			width: 60px;
 		}
 	</style>
+	<script>
+		function buscarData() {
+			document.getElementById("myModalSearchTitle").innerHTML = "Procurando...";
+			document.getElementById("myModalSearchBody").innerHTML = "<img src='img/load.gif' width='50' style='margin-left: calc(50% - 25px);margin-right: calc(50% - 25px); margin-bottom: 25px; margin-top: 25px;'>";
+			$("#myModalSearch").modal();
+			setTimeout(function(){
+				document.getElementById("myModalSearchTitle").innerHTML = "Processos";
+				document.getElementById("myModalSearchBody").innerHTML = "Nada encontrado";
+			}, 1000);
+		}
+	</script>
 </head>
 
 <body>
@@ -104,7 +115,7 @@
                 <input type="number" class="form-control form-control-lg" placeholder="Digite seu CPF aqui...">
               </div>
               <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-lg btn-danger">Consultar</button>
+                <button type="button" onclick="buscarData();" class="btn btn-block btn-lg btn-danger">Consultar</button>
               </div>
             </div>
           </form>
@@ -246,7 +257,7 @@
                 <input type="email" class="form-control form-control-lg" placeholder="Digite seu CPF aqui...">
               </div>
               <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-lg btn-danger">Consultar</button>
+                <button type="button" onclick="buscarData();" class="btn btn-block btn-lg btn-danger">Consultar</button>
               </div>
             </div>
           </form>
@@ -302,6 +313,24 @@
       </div>
     </div>
   </footer>
+  
+  <div class="modal fade" id="myModalSearch" tabindex="-1" role="dialog" aria-labelledby="myModalSearchTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myModalSearchTitle"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="myModalSearchBody">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
   
   <div id="btnwhats">
 		<a id="btnwhatstxt" href="https://api.whatsapp.com/send?phone=5531975408738&amp;text=&amp;source=&amp;data=&amp;app_absent=" target="_blank">
